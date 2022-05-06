@@ -1,5 +1,5 @@
 <template>
-
+ <div >
    <!-- Page Header-->
         <header class="masthead" >
             <div class="container position-relative px-4 px-lg-5">
@@ -7,7 +7,7 @@
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
                             <h1>Clean Blog</h1>
-                            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                            <span class="subheading">Posts by tag</span>
                         </div>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
                     <!--checj error untuk fake json-->
                   <div v-if="error">{{ error }} </div>
                   <div v-if="posts.length">
-                     <PostList v-if="showPosts" :posts="posts"/>
+                     <PostList  :posts="postWithTag"/>
                   </div>
                   <div v-else>
                     <Loading />
@@ -33,20 +33,21 @@
 
 
 
- 
+ </div>
           
 </template>
 
 <script>
-import _ from 'lodash'
+
 import { reactive, ref } from '@vue/reactivity'
 import { computed, watch, watchEffect } from '@vue/runtime-core'
-import PostList from '../components/posts/PostList.vue'
-import getPosts from '../composable/getPosts'
-import Loading from '../components/Loading.vue'
-import HomeImg from '../assets/img/home-bg.jpg'
+import PostList from '@/components/posts/PostList.vue'
+import getPosts from '@/composable/getPosts'
+import Loading from '@/components/Loading.vue'
+import HomeImg from '@/assets/img/home-bg.jpg'
+import { useRoute, useRouter } from 'vue-router'
  export default {
-name: 'Home',
+name: 'Tag',
 components:{
   PostList,
   Loading,
@@ -54,6 +55,8 @@ components:{
 
 },
 setup() {
+    
+      const route = useRoute()  
       const { posts, error, load} = getPosts ()
 
       //fungsi onUnMounted, untuk menampilkan dan menyembunyikan tampilan post
@@ -63,9 +66,16 @@ setup() {
       
       load()
 
-      return { showPosts, posts, error }
-},
+      const postWithTag = computed(() => {
+          return posts.value.filter((p) => p.tags.includes(route.params.tag))
 
+      })
+
+      return { showPosts, posts, error, postWithTag }
+},
+mounted(){
+  console.log($('para').text())
+}
 }
 </script>
 

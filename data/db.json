@@ -1,0 +1,61 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Artikel Pertama",
+      "body": "lorem 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur labore expedita mollitia perspiciatis",
+      "tags": [
+        "web",
+        "vue",
+        "node"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Artikel Kedua",
+      "body": "lorem 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur labore expedita mollitia perspiciatis",
+      "tags": [
+        "web",
+        "vue",
+        "node"
+      ]
+    },
+    {
+      "title": "postingan ke tiga",
+      "body": "isi dari postingan ketiga",
+      "tags": [
+        "php",
+        "vue",
+        "async"
+      ],
+      "id": 3
+    },
+    {
+      "title": "Artikel keempat",
+      "body": "isi dari artikel keempat dengan create yang langsung redirect k home melalui router",
+      "tags": [
+        "router",
+        "redirect",
+        "mantul"
+      ],
+      "id": 4
+    },
+    {
+      "title": "Artikel kelima",
+      "body": "ini adalah isi dari artikel kelima yang kita buat ketika tampilan dari halaman post sudah diintegrasikan dengan bootstrap",
+      "tags": [],
+      "id": 5
+    },
+    {
+      "title": "Artikel keenam",
+      "body": "ini adalah isi dari artikel keenam ujicoba submit artikel dengan tombol send",
+      "tags": [
+        "send",
+        "vue",
+        "bootstrap",
+        "vuecli"
+      ],
+      "id": 6
+    }
+  ]
+}
